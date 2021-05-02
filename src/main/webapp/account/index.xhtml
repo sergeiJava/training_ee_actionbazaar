@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>#{msgs.step1_title}</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/WEB-INF/template.xhtml">
+            <ui:define name="content">
+                <h:form>
+                    <div class="content">
+                        <span class="emphasize">
+                            #{msgs.step1_txt1}
+                        </span><br/><br/>
+                            #{msgs.step1_txt2}
+                        <br/><br/>
+                        <div style="border: 1px solid black;">
+                            <div class="header">
+                                #{msgs.step1_credentials}
+                            </div>
+
+                            <div style="margin: 5px;">
+                                <p:messages autoUpdate="true"/>
+                                <h:outputText value="#{msgs.step1_instructions}"/>
+                                <h:panelGrid columns="2">
+                                    <h:outputLabel for="username" escape="false" value="#{msgs.step1_username}"/>
+                                    <div/>
+                                    <p:inputText id="username" size="30" required="true" value="#{bidderAccountController.username}"
+                                                 requiredMessage="#{msgs.step1_usernameRequired}"/>
+                                    <p:message for="username" display="icon" />
+
+                                    <h:outputLabel for="password" value="#{msgs.step1_password}"/>
+                                    <div/>
+                                    <p:password id="password" match="confirmPassword" label="#{msgs.step1_passwordLabel}" required="true"
+                                                requiredMessage="#{msgs.step1_passwordRequired}" inline="true"  size="30" value="#{bidderAccountController.password}"/>
+                                    <p:message for="password" display="icon" />
+
+                                    <h:outputLabel for="confirmPassword" value="#{msgs.step1_confirmPassword}"/>
+                                    <div/>
+                                    <p:password id="confirmPassword" inline="true" label="#{msgs.step1_passwordConfirmLabel}" required="true"
+                                                requiredMessage="#{msgs.step1_confirmPasswordRequired}" size="30" value="#{bidderAccountController.passwordConfirm}"/>
+                                    <p:message for="confirmPassword" display="icon" />
+
+                                    <h:outputLabel for="email" value="#{msgs.step1_email}"/>
+                                    <div/>
+                                    <p:inputText id="email" size="30" required="true" requiredMessage="#{msgs.step1_emailRequired}" value="#{bidderAccountController.email}"/>
+                                    <p:message for="email" display="icon" />
+
+                                    <h:outputLabel for="confirmEmail" value="#{msgs.step1_confirmEmail}"/>
+                                    <div/>
+                                    <p:inputText id="confirmEmail" required="true" requiredMessage="#{msgs.step1_confirmEmailRequired}" size="30"
+                                                 binding="#{bidderAccountController.emailConfirmComp}"
+                                                 value="#{bidderAccountController.confirmEmail}"/>
+                                    <p:message for="confirmEmail" display="icon" />
+                                </h:panelGrid>
+                                <div style="width: 400px; text-align: right;">
+                                    <p:commandButton value="#{msgs.cancel}" ajax="false" async="false"  action="#{bidderAccountController.cancel}"/>
+                                    <p:commandButton value="#{msgs.next}"  ajax="false" async="false" action="#{bidderAccountController.processFirstStep}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </h:form>   
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

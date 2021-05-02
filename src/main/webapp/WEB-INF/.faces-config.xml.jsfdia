@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::0" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="mybazaar::#mybazaar.xhtml" NAME="output"
+    PATH="/mybazaar.xhtml" TARGET="rules:#mybazaar.xhtml"
+    TITLE="mybazaar" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="sell::#sell.xhtml" NAME="output1"
+    PATH="/sell.xhtml" TARGET="rules:#sell.xhtml" TITLE="sell" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="account::#account.xhtml" NAME="output2"
+    PATH="/account.xhtml" TARGET="rules:#account.xhtml" TITLE="account" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="create_account::#account#index.xhtml"
+    NAME="output3" PATH="/account/index.xhtml"
+    TARGET="rules:#account#index.xhtml" TITLE="create_account" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="addItem::#addItem.faces" NAME="output4"
+    PATH="/addItem.faces" TARGET="rules:#addItem.faces" TITLE="addItem" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="login::#login.faces" NAME="output5"
+    PATH="/login.faces" TARGET="rules:#login.faces" TITLE="login" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="item::#item.faces" NAME="output6"
+    PATH="/item.faces" TARGET="rules:#item.faces" TITLE="item" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="placeBid::#placeBid.faces" NAME="output7"
+    PATH="/placeBid.faces" TARGET="rules:#placeBid.faces"
+    TITLE="placeBid" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="home::#index.faces" NAME="output8"
+    PATH="/index.faces" TARGET="rules:#index.faces" TITLE="home" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="support::#chat.faces" NAME="output9"
+    PATH="/chat.faces" TARGET="rules:#chat.faces" TITLE="support" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="admin-chat::#admin#support.faces"
+    NAME="output10" PATH="/admin/support.faces"
+    TARGET="rules:#admin#support.faces" TITLE="admin-chat" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#item.faces" PATH="/item.faces"
+  SHAPE="304,385,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#addItem.faces" PATH="/addItem.faces"
+  SHAPE="304,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#login.faces" PATH="/login.faces"
+  SHAPE="304,273,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#placeBid.faces" PATH="/placeBid.faces"
+  SHAPE="304,497,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#chat.faces" PATH="/chat.faces"
+  SHAPE="304,1233,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#account.xhtml" PATH="/account.xhtml"
+  SHAPE="304,1009,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#admin#support.faces"
+  PATH="/admin/support.faces" SHAPE="304,1345,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#account#index.xhtml"
+  PATH="/account/index.xhtml" SHAPE="304,1121,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#mybazaar.xhtml" PATH="/mybazaar.xhtml"
+  SHAPE="304,337,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#sell.xhtml" PATH="/sell.xhtml"
+  SHAPE="304,897,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#index.faces" PATH="/index.faces"
+  SHAPE="32,1761,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>
