@@ -74,9 +74,7 @@ public class CommandMessage extends AbstractCommand{
 	 */
 	@Override
 	public void perform() {
-		switch(getCommand()) {
-		
-		}
+		chatServer.sendCommandMessage(session, parameters);
 	}
 
 }

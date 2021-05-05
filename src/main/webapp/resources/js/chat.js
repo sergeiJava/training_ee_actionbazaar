@@ -27,7 +27,8 @@ function Chat(webSocketUri, welcomeMsg) {
             CONNECT:"CONNECT",
             MESSAGE:"MESSAGE",
             CSR_LOST:"CSR_LOST",
-            CLIENT_LOST:"CLIENT_LOST"
+            CLIENT_LOST:"CLIENT_LOST",
+            COMMAND:"COMMAND"
     };
 
     /**
