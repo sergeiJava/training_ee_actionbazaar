@@ -5,8 +5,8 @@ public enum CommandTypes {
 	CONNECT(CommandMessage.class),
 	MESSAGE(ChatMessage.class),
 	CSR_LOST(CommandMessage.class),
-	CLIENT_LOST(CommandMessage.class);
-	
+	CLIENT_LOST(CommandMessage.class),
+	COMMAND(CommandMessage.class);
 	
 	private final Class clazz;
 	

@@ -15,10 +15,12 @@
             <h:outputStylesheet library="css" name="site.css"/>
             <script>
                 var chat;
-                //var bulletin;
+                var bulletin;
+                var clientType;
                 $(document).ready(function() {
+                 
                     chat = new Chat("admin/support","Awaiting a client.");
-                    //bulletin = new Bulletin();
+                    bulletin = new Bulletin();
                 });
                 
                 function sendFinish() {
@@ -34,8 +36,8 @@
                 <div>
                     Support Bulletin
                 </div>
-                Representatives:  
-                Waiting clients: 
+                Representatives:
+                Waiting clients:
                 <div id=""></div>
             </div>
             <div id="messageWindow" style="width:500px; height:300px; overflow:scroll;"></div>
