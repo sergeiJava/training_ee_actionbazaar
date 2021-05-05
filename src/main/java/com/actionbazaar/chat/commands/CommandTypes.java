@@ -8,7 +8,6 @@ public enum CommandTypes {
 	CLIENT_LOST(CommandMessage.class),
 	COMMAND(CommandMessage.class);
 	
-	
 	private final Class clazz;
 	
 	CommandTypes(Class clazz){
