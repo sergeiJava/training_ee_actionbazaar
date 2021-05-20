@@ -57,7 +57,7 @@ function Chat(webSocketUri, welcomeMsg) {
      */
     function onMessage(evt) {
         var msg = eval('(' + evt.data + ')');
-        $("#messageWindow").append('<span style="font-weight: bold;">' + msg.type + '</span>');
+        $("#messageWindow").append('<span style="font-weight: bold; padding-right: 10px;">' + msg + '</span>');
         if (msg.type === COMMAND_TYPE.MESSAGE) {
             $("#messageWindow").append('<span style="font-weight: bold; padding-right: 10px;">' + msg.user + '</span>');
             $("#messageWindow").append(msg.message + '<br/>');
@@ -69,7 +69,7 @@ function Chat(webSocketUri, welcomeMsg) {
             $("#messageWindow").append('<div style="font-weight: bold;">Waiting for another CSR...</div>');
         } else if (msg.type === COMMAND_TYPE.CLIENT_LOST) {
             setButtonDisabledState(true);
-            $("#messageWindow").append('<div style="font-weight: bold;">Client has disconnected...</div>');
+            $("#messageWindow").append('<div style="font-weight: bold;">Client has disconnected...</div>');	
         } else {
             $("#messageWindow").append('<span style="font-weight: bold;">UNKNOWN MESSAGE ' + msg.type + '</span>');
         }
