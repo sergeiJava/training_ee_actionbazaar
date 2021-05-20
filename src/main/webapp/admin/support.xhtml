@@ -24,7 +24,7 @@
                 });
                 
                 function sendFinish() {
-                    var message = {"type":"command","command":"closeConversation"};
+                    var message = {"type":"command","command":"COMMAND_DISCONNECT"};
                     chat.sendCommand(message);
                 }
                 
@@ -36,9 +36,10 @@
                 <div>
                     Support Bulletin
                 </div>
-                Representatives:
-                Waiting clients:
-                <div id=""></div>
+                <div id="status">
+                	Representatives:
+                	Waiting clients:
+                </div>
             </div>
             <div id="messageWindow" style="width:500px; height:300px; overflow:scroll;"></div>
             <br/>
