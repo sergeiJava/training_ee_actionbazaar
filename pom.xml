@@ -22,6 +22,7 @@
     <wildfly-port>9991</wildfly-port>
     <wildfly-username>admin</wildfly-username>
     <wildfly-password>admin</wildfly-password>
+    <wildfly.test.embeded.folder>wildfly-20.0.1.Final</wildfly.test.embeded.folder>
   </properties>
   
   <dependencyManagement>
@@ -148,10 +149,7 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.1.2</version>
         </plugin>
-        <plugin>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>3.2.0</version>
-        </plugin>
+        
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.1</version>
@@ -269,6 +267,60 @@
                         </execution>
                     </executions>
                 </plugin>
+                <plugin>
+		        	<artifactId>maven-surefire-plugin</artifactId>
+		          	<configuration>
+		          		<reuseForks>true</reuseForks>
+		          		<systemPropertyVariables>
+		          			<jboss.home>${project.build.directory}/${wildfly.test.embeded.folder}</jboss.home>
+		          		</systemPropertyVariables>
+		          		<redirectTestOutputToFile>false</redirectTestOutputToFile>
+		          	</configuration>
+                </plugin>
+                <plugin>
+		          <artifactId>maven-resources-plugin</artifactId>
+		          <version>3.2.0</version>
+		          <executions>
+		          	<execution>
+		          		<id>copy-drivers-resources</id>
+		          		<phase>process-test-classes</phase>
+		          		<goals>
+		          			<goal>copy-resources</goal>
+		          		</goals>
+		          		<configuration>
+		          			<outputDirectory>${project.build.directory}/${wildfly.test.embeded.folder}/modules/system/layers/base/com/oracle/main</outputDirectory>
+		          			<resources>
+		          				<resource>
+		          					<directory>src/test/resources/wildfly-resources</directory>
+		          					<includes>
+		          						<include>module.xml</include>
+		          						<include>ojdbc8.jar</include>
+		          					</includes>
+		          				</resource>
+		          			</resources>
+		          		</configuration>
+		          	</execution>
+		          	<execution>
+		          		<id>copy-configuration-resource</id>
+		          		<phase>process-test-classes</phase>
+		          		<goals>
+		          			<goal>copy-resources</goal>
+		          		</goals>
+		          		<configuration>
+		          			<outputDirectory>${project.build.directory}/${wildfly.test.embeded.folder}/standalone/configuration</outputDirectory>
+		          			<resources>
+		          				<resource>
+		          					<directory>src/test/resources/wildfly-resources</directory>
+		          					<includes>
+		          						<include>standalone.xml</include>
+		          					</includes>
+		          				</resource>
+		          			</resources>
+		          			<overwrite>true</overwrite>
+		          		</configuration>		          		
+		          	</execution>		 
+		          </executions>
+		        </plugin>
   			</plugins>
   		</build>
   	</profile>
