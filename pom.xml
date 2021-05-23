@@ -313,6 +313,7 @@
 		          					<directory>src/test/resources/wildfly-resources</directory>
 		          					<includes>
 		          						<include>standalone.xml</include>
+		          						<include>*.properties</include>
 		          					</includes>
 		          				</resource>
 		          			</resources>

@@ -65,10 +65,10 @@ public abstract class User implements Serializable {
 	@Email
 	private String email;
 	
-	@Column(name = "GUEST", columnDefinition = "INT(1)")
+	@Column(name = "GUEST", columnDefinition = "NUMBER(1)")
 	private boolean guest;
 	
-	@Column(name = "ACCOUNTVERIFIED", columnDefinition = "INT(1)")
+	@Column(name = "ACCOUNTVERIFIED", columnDefinition = "NUMBER(1)")
 	private boolean accountVerified;
 	
 	@Temporal(javax.persistence.TemporalType.DATE)
