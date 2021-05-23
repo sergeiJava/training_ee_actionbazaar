@@ -162,6 +162,21 @@
                         <password>sa</password>
                     </security>
                 </datasource>
+                <datasource jndi-name="java:jboss/datasources/OracleDS" pool-name="OracleDS" enabled="true" tracking="true" statistics-enabled="true">
+                    <connection-url>jdbc:oracle:thin:@192.168.1.71:1521:orcl</connection-url>
+                    <driver>oracle</driver>
+                    <pool>
+                        <min-pool-size>1</min-pool-size>
+                        <max-pool-size>5</max-pool-size>
+                        <prefill>true</prefill>
+                        <allow-multiple-users>true</allow-multiple-users>
+                    </pool>
+                    <security>
+                        <user-name>BAZAAR_TEST</user-name>
+                        <password>Qwerty1234</password>
+                    </security>
+                </datasource>
+				
                 <xa-datasource jndi-name="java:jboss/datasources/OracleDS-xa" pool-name="OracleDS-xa" enabled="true" spy="true" tracking="true" statistics-enabled="true">
                     <xa-datasource-property name="URL">
                         jdbc:oracle:thin:@192.168.1.71:1521:orcl

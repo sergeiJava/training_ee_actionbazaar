@@ -20,6 +20,8 @@
     <container qualifier="widlfly-managed" default="true" mode="suite">
         <configuration>
             <property name="jbossHome">${jbossHome:target/wildfly-20.0.1.Final}</property>
+            <property name="username">admin</property>
+            <property name="password">admin</property>
         </configuration>
     </container>
 
