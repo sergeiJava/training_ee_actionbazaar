@@ -7,21 +7,21 @@
     <defaultProtocol type="Servlet 3.0" />
 
     <!-- Configuration to be used when the WidlFly remote profile is active -->
-    <container qualifier="widlfly-remote" >
+    <container qualifier="widlfly-remote"  default="true">
         <configuration>
-            <property name="managementAddress">127.0.0.1</property>
-            <property name="managementPort">9990</property>
+            <property name="managementAddress">${management.address:192.168.1.71}</property>
+            <property name="managementPort">${management.port:9990}</property>
             <property name="username">admin</property>
             <property name="password">admin</property>
+            <property name="allowConnectingToRunningServer">true</property>
         </configuration>
     </container>
 
     <!-- Configuration to be used when the WildFly managed profile is active -->
-    <container qualifier="widlfly-managed" default="true" mode="suite">
+    <container qualifier="widlfly-managed" mode="suite">
         <configuration>
-            <property name="jbossHome">${jbossHome:target/wildfly-20.0.1.Final}</property>
-            <property name="username">admin</property>
-            <property name="password">admin</property>
+            <!--property name="jbossHome">${jbossHome:target/wildfly-20.0.1.Final}</property>-->
+            <property name="serverConfig">standalone.xml</property>
         </configuration>
     </container>
 
