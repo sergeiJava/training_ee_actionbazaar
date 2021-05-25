@@ -8,12 +8,17 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.UserTransaction;
+
+import org.apache.commons.codec.binary.*;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.modules.maven.MavenResolver;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.jboss.shrinkwrap.resolver.api.maven.Maven;
+import org.jboss.shrinkwrap.resolver.api.maven.MavenResolverSystem;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -40,7 +45,13 @@ public class BidManagerTest {
 	
 	@Deployment
 	public static Archive<?> createDeployment(){
+		MavenResolverSystem resolver = Maven.resolver();
+		
+		
+		
 		WebArchive wa = ShrinkWrap.create(WebArchive.class, "test.war")
+				.addClass(Base64.class)
+				.addClass(BaseNCodec.class)
 	            .addPackage(State.class.getPackage())   
 	            .addPackage(Address.class.getPackage())    
 	            .addPackage(BidManagerBean.class.getPackage())    
@@ -50,10 +61,14 @@ public class BidManagerTest {
 	            .addPackage(FacesContextProducer.class.getPackage())   
 	            .addPackage(Bid.class.getPackage())
 	            .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
-	            .addAsResource("test-persistence.xml", "META-INF/persistence.xml");
-	            
+	            .addAsResource("test-persistence.xml", "META-INF/persistence.xml")
+	            .addAsLibraries(resolver.loadPomFromFile("pom.xml")
+	            		.importCompileAndRuntimeDependencies().resolve("commons-codec:commons-codec").withTransitivity().asFile());
+
 	        System.out.println(wa.toString(true));
 	        return wa;
+	        
+	        
 	        
 	}
 	
@@ -64,8 +79,10 @@ public class BidManagerTest {
 	 */
 	@Before
 	public void startTransaction() throws Exception {
+		System.out.println("Before starts.....");
 		transaction.begin();
 		em.joinTransaction();
+		System.out.println("Before ended.....");
 	}
 	
 	/**
@@ -82,6 +99,7 @@ public class BidManagerTest {
 	 */
 	@Test
 	public void testCreates() {
+		System.out.println("Test running");
 		/*
 		 * Create an Item and persist it
 		 */
@@ -94,6 +112,7 @@ public class BidManagerTest {
 		 * Create a bidder and persist it
 		 */
 		BazaarAccount bidder = new BazaarAccount("rcupark", "password", "Ryan", "Cupark", address, new Date(), false);
+		bidder.setEmail("sdvita@list.ru");
 		em.persist(bidder);
 		
 		/*
